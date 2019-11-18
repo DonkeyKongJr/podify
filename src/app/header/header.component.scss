@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+  .left-actions {
+    padding: 10px 0 10px 15px;
+  }
+  .right-actions {
+    padding: 10px 15px 10px 0px;
+  }
+}
