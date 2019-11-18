@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="home">
+  <p>Place your text and hit <b>PODIFY</b></p>
+  <div class="home-input">
+    <div class="input-group ">
+      <div class="input-group-prepend ">
+        <span class="input-group-text">Your text</span>
+      </div>
+      <textarea
+        class="form-control textbox-250"
+        aria-label="Your text"
+        [(ngModel)]="text"
+      ></textarea>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary btn-right"
+      (click)="startPodify()"
+    >
+      PODIFY
+    </button>
+  </div>
+</div>
