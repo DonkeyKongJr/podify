@@ -2,12 +2,9 @@ var express = require("express");
 var app = express();
 var tts = require("./text-to-speech");
 app.use(express.json());
+app.use(express.static("static-files"));
 
 const port = 3000;
-
-app.get("/", function(req, res) {
-  res.send("This server provides an interface to a Text-To-Speech (TTS) API.");
-});
 
 // TODO: Add API Calls to Text-To-Speech API.
 app.post("/tts", async function(req, res) {
