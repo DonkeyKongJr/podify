@@ -10,9 +10,17 @@ import { HomeComponent } from "./home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { TextToSpeechService } from "../services/text-to-speech.service";
 
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent, AboutComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule
+  ],
   providers: [TextToSpeechService],
   bootstrap: [AppComponent]
 })
