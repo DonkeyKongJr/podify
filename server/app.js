@@ -11,7 +11,7 @@ app.get("/", function(req, res) {
 
 // TODO: Add API Calls to Text-To-Speech API.
 app.post("/tts", async function(req, res) {
-  await tts.textToSpeech(req.body.text);
+  await tts.textToSpeech(req.body.text, req.body.languageCode);
   res.send({
     message: "This method is not implemented yet",
     requestBody: req.body

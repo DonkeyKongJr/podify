@@ -3,7 +3,7 @@ const fs = require("fs");
 const util = require("util");
 
 module.exports = {
-  textToSpeech: async text => {
+  textToSpeech: async (text, languageCode) => {
     const client = new textToSpeech.TextToSpeechClient({
       projectId: "concrete-plasma-259621",
       keyFile: "./key-file.json"
@@ -13,7 +13,7 @@ module.exports = {
 
     const request = {
       input: { text: text },
-      voice: { languageCode: "en-US", ssmlGender: "FEMALE" },
+      voice: { languageCode: languageCode, ssmlGender: "FEMALE" },
       audioConfig: { audioEncoding: "MP3" }
     };
 
