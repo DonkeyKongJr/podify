@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var tts = require("./text-to-speech");
 app.use(express.json());
-app.use(express.static("static-files"));
+app.use(express.static("../ui/dist/podify/"));
 
 const port = 3000;
 
