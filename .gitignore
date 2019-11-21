@@ -13,6 +13,7 @@
 /server/node_modules
 /server/key-file.json
 /server/static-files
+/server/key-file-storage.json
 
 # profiling files
 chrome-profiler-events*.json
