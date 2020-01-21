@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { TTSResult } from "../models/tts-result";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { TTSResult } from 'src/app/models/tts-result';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class TextToSpeechService {
   constructor(private readonly httpClient: HttpClient) {}
@@ -15,6 +15,6 @@ export class TextToSpeechService {
       languageCode
     };
 
-    return this.httpClient.post("/tts", body) as Observable<TTSResult>;
+    return this.httpClient.post('/tts', body) as Observable<TTSResult>;
   }
 }
