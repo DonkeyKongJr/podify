@@ -12,15 +12,29 @@ import { TextToSpeechService } from "../services/text-to-speech.service";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AboutComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, AboutComponent, HomeComponent, DashboardComponent, SignInComponent, SignUpComponent, ForgotPasswordComponent, VerifyEmailComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule, 
     FormsModule,
     HttpClientModule,
-    NgbModule
-  ],
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+  ], 
   providers: [TextToSpeechService],
   bootstrap: [AppComponent]
 })
