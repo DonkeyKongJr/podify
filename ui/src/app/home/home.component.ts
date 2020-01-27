@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TextToSpeechService } from '../../services/text-to-speech.service';
 import { TTSResult } from '../models/tts-result';
+import { PodService } from 'src/services/pod.service';
+import { Pod } from '../models/pod';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +11,32 @@ import { TTSResult } from '../models/tts-result';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public name = '';
   public text = '';
   public linkToFile = '';
-  constructor(private readonly textToSpeechService: TextToSpeechService) {}
+  constructor(
+    private readonly textToSpeechService: TextToSpeechService,
+    private readonly podService: PodService,
+    private readonly authService: AuthService
+  ) {}
 
   ngOnInit() {}
 
-  public startPodify() {
-    this.textToSpeechService.post(this.text, 'de-at').subscribe((ttsResult: TTSResult) => {
+  public async startPodify() {
+    this.textToSpeechService.post(this.text, 'de-at').subscribe(async (ttsResult: TTSResult) => {
       this.text = '';
       this.linkToFile = ttsResult.path;
+
+      await this.podService.create(this.getPod(ttsResult));
     });
+  }
+
+  private getPod(ttsResult: TTSResult): Pod {
+    return {
+      name: this.name,
+      url: ttsResult.path,
+      creator: this.authService.userData.uid,
+      createdOn: new Date()
+    };
   }
 }

@@ -1,20 +1,31 @@
 <div class="home">
   <p>Place your text and hit <b>PODIFY</b></p>
-  <div class="home-input">
-    <div class="input-group ">
-      <div class="input-group-prepend ">
-        <span class="input-group-text">Your text</span>
-      </div>
+  <form>
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter name"
+        name="name"
+        [(ngModel)]="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Your Text</label>
       <textarea
-        class="form-control textbox-250"
-        aria-label="Your text"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
         [(ngModel)]="text"
+        name="text"
+        placeholder="Enter your text to speech"
       ></textarea>
     </div>
-    <button class="btn btn-primary btn-right" (click)="startPodify()">
-      PODIFY
-    </button>
-  </div>
+    <button type="submit" class="btn btn-primary" (click)="startPodify()">PODIFY</button>
+  </form>
   <div>
     <audio class="pod-audio" *ngIf="linkToFile != ''" controls="controls">
       Your browser does not support the &lt;audio&gt; tag.
