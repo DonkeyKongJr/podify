@@ -74,6 +74,7 @@ export class AuthService {
 
   public get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
+    this.userData = user;
     return user !== null && user.emailVerified !== false ? true : false;
   }
 

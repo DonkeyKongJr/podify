@@ -4,6 +4,7 @@ import { TTSResult } from '../models/tts-result';
 import { PodService } from 'src/services/pod.service';
 import { Pod } from '../models/pod';
 import { AuthService } from '../shared/services/auth.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-home',

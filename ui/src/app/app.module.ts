@@ -22,6 +22,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { PodService } from 'src/services/pod.service';
+import { PodsOverviewComponent } from './components/pods-overview/pods-overview.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PodService } from 'src/services/pod.service';
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    PodsOverviewComponent
   ],
   imports: [
     BrowserModule,

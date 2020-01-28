@@ -1,0 +1,19 @@
+<div class="top-margin-40">
+  <h3 class="left">Your pods</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pod of pods | async; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ pod.name }}</td>
+        <td>{{ pod.url }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
