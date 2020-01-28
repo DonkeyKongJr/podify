@@ -3,6 +3,9 @@ import { Pod } from 'src/app/models/pod';
 import { PodService } from 'src/services/pod.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
+import Plyr from 'plyr';
 
 @Component({
   selector: 'app-pods-overview',
@@ -20,6 +23,10 @@ export class PodsOverviewComponent implements OnInit {
   public getAllPodsForUser() {
     const userId = this.authService.userData.uid;
 
-    this.pods = this.podService.get(userId);
+    this.pods = this.podService.get(userId).pipe(tap(() => this.registerPlyr()));
+  }
+
+  private registerPlyr() {
+    setTimeout(() => Array.from(document.querySelectorAll('.audio-player')).map(p => new Plyr(p)));
   }
 }

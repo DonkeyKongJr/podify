@@ -24,8 +24,12 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "node_modules/bootstrap/dist/css/bootstrap.min.css"],
-            "scripts": []
+            "styles": [
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/plyr/dist/plyr.css"
+            ],
+            "scripts": ["node_modules/plyr/dist/plyr.min.js"]
           },
           "configurations": {
             "production": {
