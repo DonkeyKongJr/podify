@@ -14,10 +14,10 @@ export class PodService {
   }
 
   public get(userId: string): Observable<Pod[]> {
-    // const collection = this.angularFireStore.collection<Pod>('pods', ref =>
-    //   ref.where('creator', '==', userId)
-    // );
-    const collection = this.angularFireStore.collection<Pod>('pods');
+    const collection = this.angularFireStore.collection<Pod>('pods', ref =>
+      ref.where('creator', '==', userId)
+    );
+
     return collection.valueChanges();
   }
 }
