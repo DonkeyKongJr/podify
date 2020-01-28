@@ -5,7 +5,7 @@ const util = require("util");
 module.exports = {
   textToSpeech: async (text, languageCode, fileName) => {
     const client = new textToSpeech.TextToSpeechClient({
-      projectId: "concrete-plasma-259621",
+      projectId: "podify-1574358118927",
       keyFile: "./key-file.json"
     });
 

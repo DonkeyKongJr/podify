@@ -4,7 +4,6 @@ import { TTSResult } from '../models/tts-result';
 import { PodService } from 'src/services/pod.service';
 import { Pod } from '../models/pod';
 import { AuthService } from '../shared/services/auth.service';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-home',
@@ -25,16 +24,17 @@ export class HomeComponent implements OnInit {
 
   public async startPodify() {
     this.textToSpeechService.post(this.text, 'de-at').subscribe(async (ttsResult: TTSResult) => {
-      this.text = '';
       this.linkToFile = ttsResult.path;
-
       await this.podService.create(this.getPod(ttsResult));
+      this.text = '';
+      this.name = '';
     });
   }
 
   private getPod(ttsResult: TTSResult): Pod {
     return {
       name: this.name,
+      text: this.text,
       url: ttsResult.path,
       creator: this.authService.userData.uid,
       createdOn: new Date()

@@ -3,7 +3,7 @@ const { Storage } = require("@google-cloud/storage");
 module.exports = {
   upload: async filename => {
     const storage = new Storage({
-      projectId: "concrete-plasma-259621",
+      projectId: "podify-1574358118927",
       keyFilename: "./key-file.json"
     });
 

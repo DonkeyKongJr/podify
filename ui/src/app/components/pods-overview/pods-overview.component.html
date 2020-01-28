@@ -5,7 +5,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Url</th>
+        <th scope="col">Text</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -13,7 +13,7 @@
       <tr *ngFor="let pod of pods | async; index as i">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{ pod.name }}</td>
-        <td>{{ pod.url }}</td>
+        <td>{{ pod.text }}</td>
         <td>
           <audio class="pod-audio audio-player" *ngIf="pod.url != ''" controls="controls">
             Your browser does not support the &lt;audio&gt; tag.
