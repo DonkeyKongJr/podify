@@ -7,17 +7,20 @@ module.exports = {
       keyFilename: "./key-file.json"
     });
 
-    const bucket = storage.bucket("tts-audio");
-    const file = bucket.file(filename);
+    const bucket = storage.bucket("podify-1574358118927.appspot.com");
+    const destination = `tts-audio/${filename}`;
 
     await bucket.upload(filename, {
+      destination: destination,
       gzip: true,
       metadata: {
         cacheControl: "public, max-age=31536000"
       }
     });
 
-    var result = await file.makePublic();
-    return `https://storage.googleapis.com/tts-audio/${filename}`;
+    const file = bucket.file(destination);
+    await file.makePublic();
+
+    return `https://storage.googleapis.com/podify-1574358118927.appspot.com/tts-audio/${filename}`;
   }
 };
