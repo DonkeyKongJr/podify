@@ -21,6 +21,15 @@
         name="text"
         placeholder="Enter your text to speech"
       ></textarea>
+      <label for="Name">Language</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-describedby="language code"
+        placeholder="en"
+        name="languageCode"
+        [(ngModel)]="languageCode"
+      />
     </div>
     <button type="submit" class="btn btn-primary" (click)="startPodify()">PODIFY</button>
   </form>

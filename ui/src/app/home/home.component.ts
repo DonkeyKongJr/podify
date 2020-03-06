@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   public name = '';
   public text = '';
   public linkToFile = '';
+  public languageCode = "en";
+
   constructor(
     private readonly textToSpeechService: TextToSpeechService,
     private readonly podService: PodService,
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   public async startPodify() {
-    this.textToSpeechService.post(this.text, 'de-at').subscribe(async (ttsResult: TTSResult) => {
+    this.textToSpeechService.post(this.text, this.languageCode).subscribe(async (ttsResult: TTSResult) => {
       this.linkToFile = ttsResult.path;
       await this.podService.create(this.getPod(ttsResult));
       this.text = '';
